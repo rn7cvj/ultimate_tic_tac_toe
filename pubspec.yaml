@@ -25,6 +25,8 @@ dependencies:
   flutter_svg: ^2.0.7
   top_snackbar_flutter: ^3.1.0
 
+  flutter_native_splash: ^2.3.2
+
 dev_dependencies:
   flutter_launcher_icons: "^0.13.1"
   flutter_test:
@@ -49,6 +51,6 @@ flutter_launcher_icons:
   web:
     generate: true
     image_path: "assets/icon.png"
-    background_color: "#ffffff"
+    background_color: "#000000"
     theme_color: "#000000"
   

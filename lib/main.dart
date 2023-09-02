@@ -30,6 +30,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "UTTC",
       theme: ThemeData(colorSchemeSeed: Colors.blue, brightness: Brightness.light),
       darkTheme: ThemeData(colorSchemeSeed: Colors.blueGrey, brightness: Brightness.dark),
       home: GamePage(),
