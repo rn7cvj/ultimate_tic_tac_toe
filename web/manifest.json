@@ -1,11 +1,11 @@
 {
-    "name": "ultimate_tic_tac_toe",
-    "short_name": "ultimate_tic_tac_toe",
+    "name": "UTTC",
+    "short_name": "UTTC",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ff607d",
-    "description": "A new Flutter project.",
+    "description": "Ultimate Tic Tac Toe",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
