@@ -20,36 +20,36 @@ class GamePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // controller.messageStream.stream.listen(
-    //   (message) {
-    //     SnackBarPosition snackBarPosition = SnackBarPosition.bottom;
+    controller.messageStream.stream.listen(
+      (message) {
+        SnackBarPosition snackBarPosition = SnackBarPosition.bottom;
 
-    //     if (message.reciver == MessageReciver.SecondPlayer) snackBarPosition = SnackBarPosition.top;
+        if (message.reciver == MessageReciver.SecondPlayer) snackBarPosition = SnackBarPosition.top;
 
-    //     Widget snackBarContent = Material(
-    //       child: Card(
-    //         child: Padding(
-    //           padding: const EdgeInsets.all(8.0),
-    //           child: Center(child: Text(message.info.toString())),
-    //         ),
-    //       ),
-    //     );
+        Widget snackBarContent = Material(
+          child: Card(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(child: Text(message.info.toString())),
+            ),
+          ),
+        );
 
-    //     if (message.reciver == MessageReciver.SecondPlayer) {
-    //       snackBarContent = RotatedBox(
-    //         quarterTurns: -2,
-    //         child: snackBarContent,
-    //       );
-    //     }
+        if (message.reciver == MessageReciver.SecondPlayer) {
+          snackBarContent = RotatedBox(
+            quarterTurns: -2,
+            child: snackBarContent,
+          );
+        }
 
-    //     showTopSnackBar(
-    //       Overlay.of(context),
-    //       snackBarContent,
-    //       snackBarPosition: snackBarPosition,
-    //       dismissDirection: [DismissDirection.none],
-    //     );
-    //   },
-    // );
+        showTopSnackBar(
+          Overlay.of(context),
+          snackBarContent,
+          snackBarPosition: snackBarPosition,
+          dismissDirection: [DismissDirection.none],
+        );
+      },
+    );
 
     return WillPopScope(
       onWillPop: () async {
