@@ -37,7 +37,7 @@ class PlayersBar extends StatelessWidget {
                     svgPath,
                     height: 25,
                     width: 25,
-                    colorFilter: const ColorFilter.mode(Colors.transparent, BlendMode.srcIn),
+                    colorFilter: const ColorFilter.mode(Colors.transparent, BlendMode.clear),
                   ),
                 ],
               ),
