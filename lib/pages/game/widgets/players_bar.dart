@@ -27,16 +27,17 @@ class PlayersBar extends StatelessWidget {
                 children: [
                   SvgPicture.asset(
                     svgPath,
-                    color: Theme.of(context).colorScheme.secondary,
                     height: 25,
                     width: 25,
+                    // color: Theme.of(context).colorScheme.secondary,
+                    colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.secondary, BlendMode.srcIn),
                   ),
                   Text(title),
                   SvgPicture.asset(
                     svgPath,
                     height: 25,
                     width: 25,
-                    color: Colors.transparent,
+                    colorFilter: const ColorFilter.mode(Colors.transparent, BlendMode.srcIn),
                   ),
                 ],
               ),
