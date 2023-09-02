@@ -64,7 +64,8 @@ class Field extends StatelessWidget {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: buildTileContent(controller.tiles[index].state, index, tileData.widht, tileData.height),
+                        child: buildTileContent(
+                            controller.tiles[index].state, index, tileData.widht, tileData.height, context),
                       ),
                     ),
                   ),
@@ -124,18 +125,33 @@ class Field extends StatelessWidget {
     return newTiles;
   }
 
-  Widget buildTileContent(TileState state, int tileId, double tileWidth, double tileHeight) {
+  Widget buildTileContent(TileState state, int tileId, double tileWidth, double tileHeight, BuildContext context) {
     switch (state) {
       case TileState.played:
         return TicTacToeField(tileId: tileId);
 
       case TileState.crossWin:
-        return SvgPicture.asset("assets/cross.svg", width: tileWidth, height: tileHeight);
+        return SvgPicture.asset(
+          "assets/cross.svg",
+          width: tileWidth,
+          height: tileHeight,
+          colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.secondary, BlendMode.srcIn),
+        );
 
       case TileState.circleWin:
-        return SvgPicture.asset("assets/circle.svg", width: tileWidth, height: tileHeight);
+        return SvgPicture.asset(
+          "assets/circle.svg",
+          width: tileWidth,
+          height: tileHeight,
+          colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.secondary, BlendMode.srcIn),
+        );
       case TileState.draw:
-        return SvgPicture.asset("assets/draw.svg", width: tileWidth, height: tileHeight);
+        return SvgPicture.asset(
+          "assets/draw.svg",
+          width: tileWidth,
+          height: tileHeight,
+          colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.secondary, BlendMode.srcIn),
+        );
     }
   }
 }

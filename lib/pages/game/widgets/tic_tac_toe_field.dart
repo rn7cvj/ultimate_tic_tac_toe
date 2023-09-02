@@ -81,7 +81,9 @@ class TicTacToeField extends StatelessWidget {
         return SvgPicture.asset(
           "assets/circle.svg",
           // colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.tertiary, BlendMode.color),
-          color: Theme.of(context).colorScheme.secondary,
+          // color: Theme.of(context).colorScheme.secondary,
+          colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.secondary, BlendMode.srcIn),
+
           width: tileSize,
           height: tileSize,
         );
@@ -89,7 +91,9 @@ class TicTacToeField extends StatelessWidget {
         return SvgPicture.asset(
           "assets/cross.svg",
           // colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.tertiary, BlendMode.color),
-          color: Theme.of(context).colorScheme.secondary,
+          // color: Theme.of(context).colorScheme.secondary,
+          colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.secondary, BlendMode.srcIn),
+
           width: tileSize,
           height: tileSize,
         );
