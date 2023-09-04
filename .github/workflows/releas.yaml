@@ -27,7 +27,7 @@ jobs:
           cache: true
       - run: flutter pub get
       - run: flutter build apk --split-per-abi 
-      - run: mv build/app/outputs/flutter-apk/app-arm64-v8a-release.apk buid/app/outputs/flutter-apk/UTTC.apk
+      - run: mv build/app/outputs/flutter-apk/app-arm64-v8a-release.apk build/app/outputs/flutter-apk/UTTC.apk
 
       - name: 📦 Create release
         uses: "marvinpinto/action-automatic-releases@latest"

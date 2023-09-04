@@ -26,7 +26,6 @@ jobs:
       - run: flutter pub get
       - run: flutter build web --web-renderer canvaskit --base-href "/uttc/"
       - run: flutter build apk --split-per-abi 
-      - run: mv buid/app/outputs/flutter-apk/app-arm64-v8a-release.apk buid/app/outputs/flutter-apk/UTTC.apk
 
       - name: 📂 Sync files
         uses: garygrossgarten/github-action-scp@release
