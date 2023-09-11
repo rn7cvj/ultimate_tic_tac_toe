@@ -4,17 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_it/get_it.dart';
-import 'package:ultimate_tic_tac_toe/logger.dart';
-import 'package:ultimate_tic_tac_toe/models/tile.dart';
-import 'package:ultimate_tic_tac_toe/pages/game/widgets/field.dart';
+import 'package:ultimate_tic_tac_toe/constants.dart';
 
-import '../../../contollers/game.dart';
+import 'package:ultimate_tic_tac_toe/contollers/game_controller.dart';
+import 'package:ultimate_tic_tac_toe/game_logic/square.dart';
 
-class TicTacToeField extends StatelessWidget {
-  TicTacToeField({super.key, required this.tileId});
+class FiledTile extends StatelessWidget {
+  FiledTile({super.key, required this.tileId});
 
   final int tileId;
-  final GameController controller = GetIt.I<GameController>();
+  final GameController _controller = GetIt.I<GameController>();
 
   @override
   Widget build(BuildContext context) => LayoutBuilder(
@@ -24,7 +23,7 @@ class TicTacToeField extends StatelessWidget {
 
           double tileSize = min(width, height) / 3;
 
-          bool isZoom = controller.focusedTile != null;
+          bool isZoom = _controller.focusedTile != null;
 
           return GridView.count(
             padding: EdgeInsets.zero,
@@ -38,12 +37,12 @@ class TicTacToeField extends StatelessWidget {
                   height: tileSize,
                   child: InkWell(
                     borderRadius: BorderRadius.only(
-                      topLeft: index == 0 ? const Radius.circular(8.0) : Radius.zero,
-                      topRight: index == 2 ? const Radius.circular(8.0) : Radius.zero,
-                      bottomLeft: index == 6 ? const Radius.circular(8.0) : Radius.zero,
-                      bottomRight: index == 8 ? const Radius.circular(8.0) : Radius.zero,
+                      topLeft: index == 0 ? Radius.circular(borderRadius) : Radius.zero,
+                      topRight: index == 2 ? Radius.circular(borderRadius) : Radius.zero,
+                      bottomLeft: index == 6 ? Radius.circular(borderRadius) : Radius.zero,
+                      bottomRight: index == 8 ? Radius.circular(borderRadius) : Radius.zero,
                     ),
-                    onTap: isZoom ? () => controller.setSquareState(tileId, index) : null,
+                    onTap: isZoom ? () => _controller.tileTap(tileId, index) : null,
                     child: Observer(
                       builder: (_) {
                         return Container(
@@ -61,7 +60,7 @@ class TicTacToeField extends StatelessWidget {
                           ),
                           child: tileContent(
                             context,
-                            controller.tiles[tileId].squares[index],
+                            _controller.tiles[tileId].squares[index],
                             tileSize,
                           ),
                         );

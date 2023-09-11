@@ -3,17 +3,28 @@ class Message {
   final MessageReciver reciver;
   final MessageInfo info;
 
-  Message({required this.type, required this.reciver, required this.info});
+  Message({
+    required this.type,
+    required this.reciver,
+    required this.info,
+  });
 }
 
-enum MessageType { info, warning }
+enum MessageType {
+  info,
+  warning,
+}
 
 enum MessageReciver {
-  FirstPlayer,
-  SecondPlayer,
+  firstPlayer,
+  secondPlayer,
+  bothPlayer,
 }
 
 enum MessageInfo {
-  IllegalMove,
-  NoForceTile,
+  illegalMove,
+  noForceTile,
+  draw,
+  crossWin,
+  circleWin,
 }

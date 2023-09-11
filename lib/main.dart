@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
-import 'package:ultimate_tic_tac_toe/contollers/game.dart';
-import 'package:ultimate_tic_tac_toe/pages/game/game.dart';
+import 'package:ultimate_tic_tac_toe/contollers/game_controller.dart';
 
-void main() {
+import 'pages/local_game/local_game.dart';
+
+void main() async {
   setUpSystemUIOverlay();
 
   GetIt.I.registerSingleton<GameController>(GameController());
+
+  Future(() => GetIt.I<GameController>().startGameLoop());
 
   runApp(const App());
 }
@@ -33,7 +36,7 @@ class App extends StatelessWidget {
       title: "UTTC",
       theme: ThemeData(colorSchemeSeed: Colors.blue, brightness: Brightness.light),
       darkTheme: ThemeData(colorSchemeSeed: Colors.blueGrey, brightness: Brightness.dark),
-      home: GamePage(),
+      home: LocalGamePage(),
     );
   }
 }
