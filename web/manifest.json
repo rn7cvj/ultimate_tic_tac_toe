@@ -3,7 +3,7 @@
     "short_name": "UTTC",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#000000",
+    "background_color": "#ffffff",
     "theme_color": "#000000",
     "description": "Ultimate Tic Tac Toe",
     "orientation": "portrait-primary",
